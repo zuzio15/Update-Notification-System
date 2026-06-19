@@ -113,6 +113,16 @@ void MonitorLogFiles()
                 }
                 else
                 {
+
+                    file.seekg(0, std::ios::end);
+                    std::streampos currentSize = file.tellg();
+
+                    if (currentSize < platform.lastPos)
+                    {
+
+                        platform.lastPos = 0;
+                    }
+
                     file.seekg(platform.lastPos);
                 }
 

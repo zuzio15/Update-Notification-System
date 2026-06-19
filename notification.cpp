@@ -2,10 +2,10 @@
 #include "notification.h"
 #include <thread>
 #include <atomic>
+#include <mutex>
 
 // Prevents multiple simultaneous notification windows
-static std::atomic<bool> g_active(false);
-
+static std::mutex g_notificationMutex;
 
 // Renders a small bottom-right notification window using Raylib.
 
@@ -61,7 +61,7 @@ static void RaylibWindow(std::string platformName)
     CloseWindow();
 
     // Release lock so next notification can appear
-    g_active = false;
+    g_notificationMutex.unlock();
 }
 
 
@@ -70,10 +70,8 @@ static void RaylibWindow(std::string platformName)
 void TriggerNotification(const std::string& platformName)
 {
     // Ignore if a notification is already being displayed
-    if (g_active)
+    if (!g_notificationMutex.try_lock())
         return;
-
-    g_active = true;
 
     // Run UI in detached thread to avoid blocking main logic
     std::thread(RaylibWindow, platformName).detach();
