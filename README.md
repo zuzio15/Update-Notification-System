@@ -2,7 +2,7 @@
 
 ## Opis
 
-Aplikacja działająca w tle w systemie Windows, która:
+Aplikacja monitorująca konkretne pliki, z głównym przeznaczeniem powiadomienia użytkownika w momencie rozpoczęcia aktualizacji programu,która:
 
 - działa bez okna konsoli
 - tworzy ikonę w System Tray
@@ -33,19 +33,17 @@ Aplikacja działająca w tle w systemie Windows, która:
 
 ---
 
-## Wymagania
+## Użyto
 
-- C++17+
 - Win32 API
 - Raylib
-- OpenGL (dla Raylib)
-- MinGW lub MSVC
+
 
 ---
 
 ## Uruchomienie
 
-1. Zbuduj projekt w CLion / CMake
-2. Uruchom aplikację
+1. Zbudować projekt w CLion / CMake
+2. Uruchomić aplikację
 3. Ikona pojawi się w System Tray
 4. W razie wykrycia odpowiedniego wpisu pojawi się okno Raylib
