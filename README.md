@@ -33,13 +33,12 @@ Aplikacja działająca w tle w systemie Windows, która:
 
 ---
 
-## Wymagania
+## Użyto
 
 - C++17+
 - Win32 API
 - Raylib
-- OpenGL (dla Raylib)
-- MinGW lub MSVC
+
 
 ---
 
